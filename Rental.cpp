@@ -63,3 +63,33 @@ void Rental::update_client(Kunde a, string newname)
 		}
 		i++;
 	}
+}
+
+void Rental::add_auto(Auto a)
+{
+	l.push_back(a);
+}
+
+void Rental::delete_auto(Auto a)
+{
+	int i = 0;
+	while (i < l.size())
+	{
+		if (l[i].getterId() == a.getterId())
+		{
+			l.erase(l.begin() + i);
+			return;
+		}
+		i++;
+	}
+}
+
+void Rental::display_cars()
+{
+	int i = 0;
+	while (i < l.size())
+	{
+		cout << l[i].getterId() << " " << l[i].getterMarke() << " " << l[i].getterModell() << endl;
+		i++;
+	}
+}
